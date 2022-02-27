@@ -11,7 +11,7 @@
       - [Custom install](#custom-install)
   - [Required Packages*](#required-packages)
   - [Other Required Software](#other-required-software)
-  - [Recomended additional software/packages*](#recomended-additional-softwarepackages)
+  - [Optional additional software/packages*](#optional-additional-softwarepackages)
   - [Research to be done](#research-to-be-done)
   - [Resources](#resources)
   - [NVIM](#nvim)
@@ -49,6 +49,8 @@ Headless/Light install is intended for environments like WSL, which do not requi
 | polybar<sup>1</sup>                        |       | ✅    |
 | playerctl                                  |       | ✅    |
 | imagemagick                                |       | ✅    |
+| node                                       |       | ✅    |
+| npm                                        |       | ✅    |
 
 1. polybar must be [installed manually](https://github.com/polybar/polybar) for ubuntu v>20.10
 
@@ -62,7 +64,7 @@ These will Automatically be installed in step 5:
 - [Oh-My-Zsh](https://ohmyz.sh/)
 - [p10k](https://github.com/romkatv/powerlevel10k)
 
-## Recomended additional software/packages*
+## Optional additional software/packages*
 - [VS Code](https://code.visualstudio.com/)
 - [Spotify Client](https://www.spotify.com/us/)
 - nvim
