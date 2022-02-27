@@ -109,7 +109,7 @@ alias zshconfig="nvim ~/.zshrc"
 alias zshreload="source ~/.zshrc"
 alias ll="ls -alF"
 alias la="ls -A"
-alias ll="l -cF"
+alias l="l -cF"
 alias cd..="cd .."
 
 function mkcd() {
