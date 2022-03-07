@@ -255,6 +255,7 @@ for_window [window_role="pop-up"] floating enable
 for_window [window_role="task_dialog"] floating enable
 for_window [class="Arandr"] floating enable
 for_window [class="Nm-connection-editor"] floating enable
+for_window [class="zoom"] floating enable
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -264,7 +265,7 @@ assign [class="Firefox"] $web
 assign [class="Code"] $code
 
 ###########################  picom  #############################
-exec picom --config /home/alex/repos/dotfiles/picom/picom.conf --experimental-backends
+exec_always picom --config /home/alex/repos/dotfiles/picom/picom.conf --experimental-backends
 
 #############################  gaps & borders  #################################
 

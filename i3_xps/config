@@ -273,8 +273,8 @@ exec_always picom --config /home/alex/repos/dotfiles/picom/picom.conf --experime
 # You can also use any non-zero value if you'd like to have a border
 for_window [class=".*"] border pixel 1
 hide_edge_borders smart
-gaps inner 24
 smart_gaps on
+gaps inner 24
 bindsym $mod+g gaps inner current toggle 24
 
 #################################  Wallpaper  ##################################
