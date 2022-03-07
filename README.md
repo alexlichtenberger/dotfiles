@@ -21,8 +21,7 @@
 ## Installation
 Follow below for a full, headless, or custom install
 #### Full install
-A full install installs everything in this repo, including `.zshrc`, `oh my zsh`, `p10k`, VS Code, `spotifyd`/`spotify-tui`, `i3-gaps`, `polybar`, etc.
-It is not light, and is inteded for computers intended to be used as full desktop machines.
+A full install installs everything in this repo, including `.zshrc`, `oh my zsh`, `p10k`, VS Code, `spotifyd`/`spotify-tui`, `i3-gaps`, `polybar`, etc. (i.e. for full desktop linux)
 1. Clone this repo to the repos folder in home directory
 2. Install required packages
 3. Install required software
@@ -31,6 +30,7 @@ It is not light, and is inteded for computers intended to be used as full deskto
 
 #### Headless/light install
 Headless/Light install is intended for environments like WSL, which do not require a WM or GUI apps, and just installs `oh my zsh`, `p10k`, `.zshrc`, etc
+for now, just skip `i3 feh picom lxappearance rofi mlocate polybar playerctl imagemagick` as well as kitty and other desktop apps
 
 #### Custom install
 
