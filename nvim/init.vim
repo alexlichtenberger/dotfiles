@@ -150,7 +150,8 @@ call plug#begin('~/.vim/plugged')
   Plug 'jiangmiao/auto-pairs'
   " Git panel
   "Plug 'xuyuanp/nerdtree-git-plugin'
-
+  " surround tokens with quotes and such
+  Plug 'tpope/vim-surround'
   " Fuzzy find
   Plug 'ctrlpvim/ctrlp.vim'
 
@@ -218,12 +219,15 @@ inoremap <leader>n     <Esc>:tabnext<CR>i
 inoremap <leader>t     <Esc>:tabnew<CR>
 
 "Ctrl+/ for commenting and uncommenting"
-nmap <C-_>   <Plug>NERDCommenterToggle
-vmap <C-_>   <Plug>NERDCommenterToggle<CR>gv
+nmap <C-_> <Plug>NERDCommenterToggle
+vmap <C-_> <Plug>NERDCommenterToggle<CR>gv
+imap <c-_> <esc><Plug>NERDCommenterToggle<CR>gi
 
 " save on control s
 nmap <C-s> :w<cr>
 " imap <C-s> :w<cr>
+
+map <C-,> :vsp $MYVIMRC
 
 " open new buffer split to the right 
 nmap <c-n> :vnew<cr>
@@ -254,6 +258,10 @@ nmap <c-t> :new<cr>:term<cr>20<C-w>_i
 
 " open ctrlp
 nmap <c-p> :CtrlPMixed<cr>
+
+" Move line up or down
+nmap <a-up> ddkkp<esc>
+nmap <a-down> ddp<esc>
 
 "Tagbar mappings
 " Toggle tagbar
@@ -286,6 +294,9 @@ if has('nvim')
 else
   inoremap <silent><expr> <c-@> coc#refresh()
 endif
+
+nmap <c-z> u
+imap <c-z> <Esc>ui
 
 " }}}
 
@@ -339,6 +350,9 @@ autocmd BufWinEnter * if getcmdwintype() == '' | silent NERDTreeMirror | endif
 
 " Set colorscheme
 autocmd VImEnter * colorscheme onehalfdark
+
+" highlighting on cursor pause
+autocmd CursorHold * silent call CocActionAsync('highlight')
 
 
 " }}}

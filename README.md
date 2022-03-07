@@ -37,20 +37,20 @@ Headless/Light install is intended for environments like WSL, which do not requi
 ## Required Packages*
 | Package                                    | light | full |
 | ------------------------------------------ | ----- | ---- |
-| zsh                                        | ✅     | ✅    |
-| git                                        | ✅     | ✅    |
-| curl                                       | ✅     | ✅    |
-| [i3-gaps](https://github.com/Airblader/i3) |       | ✅    |
-| feh                                        |       | ✅    |
-| compton                                    |       | ✅    |
-| lxappearance                               |       | ✅    |
-| rofi                                       |       | ✅    |
-| mlocate                                    |       | ✅    |
-| polybar<sup>1</sup>                        |       | ✅    |
-| playerctl                                  |       | ✅    |
-| imagemagick                                |       | ✅    |
-| node                                       |       | ✅    |
-| npm                                        |       | ✅    |
+| zsh                                        | ✅    | ✅   |
+| git                                        | ✅    | ✅   |
+| curl                                       | ✅    | ✅   |
+| [i3-gaps](https://github.com/Airblader/i3) |       | ✅   |
+| feh                                        |       | ✅   |
+| picom                                      |       | ✅   |
+| lxappearance                               |       | ✅   |
+| rofi                                       |       | ✅   |
+| mlocate                                    |       | ✅   |
+| polybar<sup>1</sup>                        |       | ✅   |
+| playerctl                                  |       | ✅   |
+| imagemagick                                |       | ✅   |
+| node                                       |       | ✅   |
+| npm                                        |       | ✅   |
 
 1. polybar must be [installed manually](https://github.com/polybar/polybar) for ubuntu v>20.10
 
@@ -106,4 +106,4 @@ These will Automatically be installed in step 5:
 - [shift keybinds in kitty](https://www.reddit.com/r/neovim/comments/mbj8m5/how_to_setup_ctrlshiftkey_mappings_in_neovim_and/) -- NOT WORKING YET
 - [Install COC extensions](https://vimawesome.com/plugin/coc-nvim)
   - COC requires node and npm (must be in `/usr/bin/node` and `/usr/bin/npm`)
-  - once installed, run `:CocInstall coc-marketplace` and the `:CocInstall CocList marketplace`
+  - once installed, run `:CocInstall coc-marketplace` and the `:CocList marketplace`

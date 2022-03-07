@@ -91,7 +91,8 @@ bindsym $mod+Return exec kitty
 # set $rofi_theme "Paper"
 
 # General
-bindsym $mod+space exec --no-startup-id rofi -show combi -combi-modi "window#drun#file:/home/alex/.config/rofi/custom_modi/find_file.sh#run" -modi combi -steal-focus
+#bindsym $mod+space exec --no-startup-id rofi -show combi -combi-modi "window#drun#file:/home/alex/.config/rofi/custom_modi/find_file.sh#run" -modi combi -steal-focus
+bindsym $mod+space exec --no-startup-id rofi -show combi -combi-modi "window#drun#run" -modi combi -steal-focus
 bindsym $mod+d exec --no-startup-id rofi -show combi -combi-modi "window#drun#file:/home/alex/.config/rofi/custom_modi/find_file.sh#run" -modi combi -steal-focus
 # Advanced
 bindsym $mod+Shift+space exec --no-startup-id rofi -show combi -combi-modi "window#drun#file:/home/alex/.config/rofi/custom_modi/find_file_all.sh#run" -modi combi -steal-focus
@@ -255,6 +256,7 @@ for_window [window_role="pop-up"] floating enable
 for_window [window_role="task_dialog"] floating enable
 for_window [class="Arandr"] floating enable
 for_window [class="Nm-connection-editor"] floating enable
+for_window [class="zoom"] floating enable
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -264,15 +266,15 @@ assign [class="Firefox"] $web
 assign [class="Code"] $code
 
 ###########################  picom  #############################
-exec picom --config /home/alex/repos/dotfiles/picom/picom.conf --experimental-backends
+exec_always picom --config /home/alex/repos/dotfiles/picom/picom.conf --experimental-backends
 
 #############################  gaps & borders  #################################
 
 # You can also use any non-zero value if you'd like to have a border
 for_window [class=".*"] border pixel 1
 hide_edge_borders smart
-smart_gaps on
 gaps inner 24
+smart_gaps on
 bindsym $mod+g gaps inner current toggle 24
 
 #################################  Wallpaper  ##################################
