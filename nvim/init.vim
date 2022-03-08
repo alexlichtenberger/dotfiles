@@ -245,7 +245,7 @@ nmap <c-n> :vnew<cr>
 " Toggle dark mode
 map <expr> <C-A-d> Toggle_Dark_Mode()
 
-let g:duo_themes = [{'name': 'github-light'}, {'name': 'onehalfdark', 'bg': 'dark'}]
+let g:duo_themes = [{'name': 'onehalflight'}, {'name': 'onehalfdark', 'bg': 'dark'}]
 
 func! s:set_colorscheme(color)
 	if has_key(a:color, 'bg')
@@ -264,7 +264,8 @@ func! Toggle_Dark_Mode()
 endfunc
 
 " open new terminal at bottom of screen
-nmap <c-t> :new<cr>:term<cr>20<C-w>_i
+" nmap <c-t> :new<cr>:term<cr>20<C-w>_i
+nmap <c-t> :bo sp<cr>:term<cr>20<c-w>_i
 
 " open ctrlp
 nmap <c-p> :CtrlPMixed<cr>
@@ -317,7 +318,7 @@ imap <c-z> <Esc>ui
 set mouse=a
 
 " Open NERDtree automatically
-"au VimEnter *  NERDTree | wincmd p
+au VimEnter *  NERDTree | wincmd p
 
 " This will enable code folding.
 " Use the marker method of folding.
@@ -359,11 +360,15 @@ endif
  "Open the existing NERDTree on each new tab.
 "autocmd BufWinEnter * if getcmdwintype() == '' | silent NERDTreeMirror | endif
 
+"autocmd BufWinEnter * if getcmdwintype() == '' | silent Startify | endif
+
 " Set colorscheme
 autocmd VImEnter * colorscheme onehalfdark
 
 " highlighting on cursor pause
 autocmd CursorHold * silent call CocActionAsync('highlight')
+
+au VimEnter * Startify
 
 
 " }}}
