@@ -73,7 +73,6 @@ These will Automatically be installed in step 5:
 - [Node/NVM](https://github.com/nvm-sh/nvm)
   - double check node path in init.vim and npm path in coc-settings.json
 
-*packages without links can be installed via apt without any extra steps
 
 ## Research to be done
 
@@ -106,3 +105,5 @@ These will Automatically be installed in step 5:
 - [Install COC extensions](https://vimawesome.com/plugin/coc-nvim)
   - COC requires node and npm (must be in `/usr/bin/node` and `/usr/bin/npm`)
   - once installed, run `:CocInstall coc-marketplace` and the `:CocList marketplace`
+
+*packages without links can be installed via apt without any extra steps
