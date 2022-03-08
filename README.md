@@ -32,6 +32,12 @@ A full install installs everything in this repo, including `.zshrc`, `oh my zsh`
 Headless/Light install is intended for environments like WSL, which do not require a WM or GUI apps, and just installs `oh my zsh`, `p10k`, `.zshrc`, etc
 for now, just skip `i3 feh picom lxappearance rofi mlocate polybar playerctl imagemagick` as well as kitty and other desktop apps
 
+WSL specific:
+- run ` Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsystem-Linux` in an elevated powershell prompt
+- install ubuntu lts via microsoft store
+- download windows terminal so you don't hate life
+- use the instructions above
+
 #### Custom install
 
 ## Required Packages*

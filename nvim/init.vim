@@ -123,6 +123,8 @@ let g:NERDTreeGitStatusUseNerdFonts = 1
 let NERDTreeShowHidden=1
 let g:ctrlp_show_hidden=1
 
+let g:nerdtree_tabs_open_on_console_startup=1
+
 " PLUGINS ---------------------------------------------------------------- {{{
 
 call plug#begin('~/.vim/plugged')
@@ -154,6 +156,14 @@ call plug#begin('~/.vim/plugged')
   Plug 'tpope/vim-surround'
   " Fuzzy find
   Plug 'ctrlpvim/ctrlp.vim'
+  " CSS color highlighting
+  Plug 'ap/vim-css-color'
+  " Light color theme
+  Plug 'romgrk/github-light.vim'
+  " start screen
+  Plug 'mhinz/vim-startify'
+  " tabs work with nerdtree
+  Plug 'jistr/vim-nerdtree-tabs'
 
   "Plug 'preservim/nerdtree' |
             "\ Plug 'Xuyuanp/nerdtree-git-plugin' |
@@ -220,8 +230,8 @@ inoremap <leader>t     <Esc>:tabnew<CR>
 
 "Ctrl+/ for commenting and uncommenting"
 nmap <C-_> <Plug>NERDCommenterToggle
-vmap <C-_> <Plug>NERDCommenterToggle<CR>gv
-imap <c-_> <esc><Plug>NERDCommenterToggle<CR>gi
+vmap <C-_> <Plug>NERDCommenterToggle<CR>:gv<cr>
+imap <c-_> <esc><Plug>NERDCommenterToggle<CR>:gi<cr>
 
 " save on control s
 nmap <C-s> :w<cr>
@@ -235,7 +245,7 @@ nmap <c-n> :vnew<cr>
 " Toggle dark mode
 map <expr> <C-A-d> Toggle_Dark_Mode()
 
-let g:duo_themes = [{'name': 'onehalflight'}, {'name': 'onehalfdark', 'bg': 'dark'}]
+let g:duo_themes = [{'name': 'github-light'}, {'name': 'onehalfdark', 'bg': 'dark'}]
 
 func! s:set_colorscheme(color)
 	if has_key(a:color, 'bg')
@@ -269,8 +279,9 @@ nmap <c-o> :TagbarToggle<CR>
 
 "NERDTree specific mappings.
 " ctrl+shift+s toggles nerd tree pane.  ctrt+b switches focus form nerdtree to buffer
-nnoremap <C-A-b> :NERDTreeToggle<CR>
-nnoremap <expr> <c-b> Toggle_Focus()
+ map <c-b> <plug>NERDTreeTabsToggle<CR>
+"nnoremap <C-A-b> :NERDTreeToggle<CR>
+"nnoremap <expr> <c-b> Toggle_Focus()
 
 func Toggle_Focus()
   if exists("b:NERDTree") 
@@ -306,7 +317,7 @@ imap <c-z> <Esc>ui
 set mouse=a
 
 " Open NERDtree automatically
-au VimEnter *  NERDTree
+"au VimEnter *  NERDTree | wincmd p
 
 " This will enable code folding.
 " Use the marker method of folding.
@@ -333,20 +344,20 @@ endif
 
 " NERDTree
 " Have nerdtree ignore certain files and directories.
-let NERDTreeIgnore=['\.git$', '\.jpg$', '\.mp4$', '\.ogg$', '\.iso$', '\.pdf$', '\.pyc$', '\.odt$', '\.png$', '\.gif$', '\.db$']
+"let NERDTreeIgnore=['\.git$', '\.jpg$', '\.mp4$', '\.ogg$', '\.iso$', '\.pdf$', '\.pyc$', '\.odt$', '\.png$', '\.gif$', '\.db$']
 
-" Close the tab if NERDTree is the only window remaining in it.
-autocmd BufEnter * if winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
+ "Close the tab if NERDTree is the only window remaining in it.
+"autocmd BufEnter * if winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
 
-" Exit Vim if NERDTree is the only window remaining in the only tab.
-autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
+ "Exit Vim if NERDTree is the only window remaining in the only tab.
+"autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
 
-" Start NERDTree. If a file is specified, move the cursor to its window.
-autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * NERDTree | if argc() > 0 || exists("s:std_in") | wincmd p | endif
+ "Start NERDTree. If a file is specified, move the cursor to its window.
+"autocmd StdinReadPre * let s:std_in=1
+"autocmd VimEnter * NERDTree | if argc() > 0 || exists("s:std_in") | wincmd p | endif
 
-" Open the existing NERDTree on each new tab.
-autocmd BufWinEnter * if getcmdwintype() == '' | silent NERDTreeMirror | endif
+ "Open the existing NERDTree on each new tab.
+"autocmd BufWinEnter * if getcmdwintype() == '' | silent NERDTreeMirror | endif
 
 " Set colorscheme
 autocmd VImEnter * colorscheme onehalfdark

@@ -243,6 +243,7 @@ bindsym $mod+r mode "RESIZE"
 ###########################  bar config #############################
 
 exec_always --no-startup-id sh /home/alex/.config/polybar/launch.sh
+# exec_always --no-startup-id nm-applet
 # bar {
 #         position top
 #         status_command i3status
