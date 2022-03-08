@@ -6,7 +6,6 @@
 
 - [dotfiles](#dotfiles)
   - [Installation](#installation)
-      - [Custom install](#custom-install)
   - [Required Packages*](#required-packages)
   - [Other Required Software](#other-required-software)
   - [Optional additional software/packages*](#optional-additional-softwarepackages)
@@ -30,8 +29,6 @@ WSL notes:
 - install ubuntu lts via microsoft store
 - download windows terminal so you don't hate life
 - use the instructions above
-
-#### Custom install
 
 ## Required Packages*
 | Package                                    | light | full |
