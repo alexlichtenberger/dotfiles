@@ -1,0 +1,169 @@
+#!/usr/bin/env bash
+
+echo "               _  __ _ _       _     "
+echo "              | |/ _| (_)     | |    "
+echo "            __| | |_| |_ _ __ | | __ "
+echo "           / _  |  _| | | '_ \| |/ / "
+echo "          | (_| | | | | | | | |   <  "
+echo "           \__,_|_| |_|_|_| |_|_|\_\ "
+echo "                                     "
+echo "                                     "
+
+echo "         Welcome to the dotfile linker!"
+echo "This program assumes the dotfiles repo was cloned"
+echo " to '~/repos/dotfiles'.  Move it if it is placed"
+echo "       elsewhere or the config will not work."
+echo ""
+
+cd ~/repos/dotfiles
+
+echo "Pick an installation: (f)ull or (h)eadless?"
+read base
+if [[ $base == 'h' ]]
+then 
+    echo "This will replace neofetch,nvim.zshrc,.p10k.zsh configs."
+    echo "Proceed? (Y/n)"
+    read confirmation
+    if [[ $confirmation == 'n' ]]
+    then
+        echo "No changes were made."
+        echo "Exiting..." 
+        exit 0
+    fi
+
+    echo "Starting headless linking..."
+
+    echo "link neofetch..."
+    rm -R ~/.config/neofetch 
+    ln -s $PWD/neofetch ~/.config/neofetch
+
+    echo "link nvim..."
+    rm -R ~/.config/nvim 
+    ln -s $PWD/nvim ~/.config/nvim
+
+    echo "link .zshrc..."
+    rm ~/.zshrc 
+    ln $PWD/.zshrc ~/.zshrc
+
+    echo "link .p10k.zsh..."
+    rm ~/.p10k.zsh 
+    ln $PWD/.p10k.zsh ~/.p10k.zsh
+
+    echo "done."
+
+elif [[ $base == 'f' ]]
+then
+    echo "Pick a platform: (d)esktop or (l)aptop?"
+    read platform
+    if [[ $platform == 'd' ]]
+    then 
+        echo "This will replace dunst,i3,kitty,neofetch,nvim,picom,polybar,rofi,.zshrc,.p10k.zsh configs."
+        echo "Proceed? (Y/n)"
+        read confirmation
+        if [[ $confirmation == 'n' ]]
+        then
+            echo "No changes were made."
+            echo "Exiting..." 
+            exit 0
+        fi
+
+        echo "Starting desktop linking..."
+
+        echo "link dunst..."
+        rm -R ~/.config/dunst 
+        ln -s $PWD/dunst ~/.config/dunst
+
+        echo "link i3..."
+        rm -R ~/.config/i3 
+        ln -s $PWD/i3 ~/.config/i3
+
+        echo "link kitty..."
+        rm -R ~/.config/kitty 
+        ln -s $PWD/kitty ~/.config/kitty
+
+        echo "link neofetch..."
+        rm -R ~/.config/neofetch 
+        ln -s $PWD/neofetch ~/.config/neofetch
+
+        echo "link nvim..."
+        rm -R ~/.config/nvim 
+        ln -s $PWD/nvim ~/.config/nvim
+
+        echo "link picom..."
+        rm -R ~/.config/picom 
+        ln -s $PWD/picom ~/.config/picom
+
+        echo "link polybar..."
+        rm -R ~/.config/polybar 
+        ln -s $PWD/polybar ~/.config/polybar
+
+        echo "link rofi..."
+        rm -R ~/.config/rofi 
+        ln -s $PWD/rofi ~/.config/rofi
+
+        echo "link .zshrc..."
+        rm ~/.zshrc 
+        ln $PWD/.zshrc ~/.zshrc
+
+        echo "link .p10k.zsh..."
+        rm ~/.p10k.zsh 
+        ln $PWD/.p10k.zsh ~/.p10k.zsh
+
+        echo "done."
+    elif [[ $platform == 'l' ]]
+    then
+        echo "This will replace dunst,i3,kitty,neofetch,nvim,picom,polybar,rofi,.zshrc,.p10k.zsh configs."
+        echo "Proceed? (Y/n)"
+        read confirmation
+        if [[ $confirmation == 'n' ]]
+        then
+            echo "No changes were made."
+            echo "Exiting..." 
+            exit 0
+        fi
+
+        echo "Starting laptop Linking..."
+
+        echo "link dunst..."
+        rm -R ~/.config/dunst 
+        ln -s $PWD/dunst ~/.config/dunst
+
+        echo "link i3..."
+        rm -R ~/.config/i3 
+        ln -s $PWD/i3_laptop ~/.config/i3
+
+        echo "link kitty..."
+        rm -R ~/.config/kitty 
+        ln -s $PWD/kitty ~/.config/kitty
+
+        echo "link neofetch..."
+        rm -R ~/.config/neofetch 
+        ln -s $PWD/neofetch ~/.config/neofetch
+
+        echo "link nvim..."
+        rm -R ~/.config/nvim 
+        ln -s $PWD/nvim ~/.config/nvim
+
+        echo "link picom..."
+        rm -R ~/.config/picom 
+        ln -s $PWD/picom ~/.config/picom
+
+        echo "link polybar..."
+        rm -R ~/.config/polybar 
+        ln -s $PWD/polybar_laptop ~/.config/polybar
+
+        echo "link rofi..."
+        rm -R ~/.config/rofi 
+        ln -s $PWD/rofi ~/.config/rofi
+
+        echo "link .zshrc..."
+        rm ~/.zshrc 
+        ln $PWD/.zshrc ~/.zshrc
+
+        echo "link .p10k.zsh..."
+        rm ~/.p10k.zsh 
+        ln $PWD/.p10k.zsh ~/.p10k.zsh
+
+        echo "done."
+    fi
+fi

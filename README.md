@@ -6,8 +6,6 @@
 
 - [dotfiles](#dotfiles)
   - [Installation](#installation)
-      - [Full install](#full-install)
-      - [Headless/light install](#headlesslight-install)
       - [Custom install](#custom-install)
   - [Required Packages*](#required-packages)
   - [Other Required Software](#other-required-software)
@@ -19,20 +17,15 @@
 <!-- /code_chunk_output -->
 
 ## Installation
-Follow below for a full, headless, or custom install
-#### Full install
-A full install installs everything in this repo, including `.zshrc`, `oh my zsh`, `p10k`, VS Code, `spotifyd`/`spotify-tui`, `i3-gaps`, `polybar`, etc. (i.e. for full desktop linux)
-1. Clone this repo to the repos folder in home directory
-2. Install required packages
-3. Install required software
-4. Cd into the appropriate install scripts folder and run `bash install.sh` to symlink all the files for that distro/version and install oh my zsh and p10k, turn off display sleep, etc.
-5. Restart.
+Follow below for a full, headless, or custom install (install will specify what it is overwriting)
 
-#### Headless/light install
-Headless/Light install is intended for environments like WSL, which do not require a WM or GUI apps, and just installs `oh my zsh`, `p10k`, `.zshrc`, etc
-for now, just skip `i3 feh picom lxappearance rofi mlocate polybar playerctl imagemagick` as well as kitty and other desktop apps
+1. Clone repo to `~/repos/dotfiles`
+2. Install dependencies/software/packages for installation type
+3. cd into install_scripts
+4. Run `chmod +x dflink && ./dflink`
+5. Follow the installer and verify that symlinks are valid
 
-WSL specific:
+WSL notes:
 - run ` Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsystem-Linux` in an elevated powershell prompt
 - install ubuntu lts via microsoft store
 - download windows terminal so you don't hate life
