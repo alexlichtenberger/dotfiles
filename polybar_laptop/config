@@ -194,7 +194,7 @@ menu-2-0 = "  BACK "
 menu-2-0-exec = #powermenu.open.0
 menu-2-0-background = ${colors.red}
 menu-2-1 = " 襤 POWER OFF "
-menu-2-1-exec = systemctl shutdown
+menu-2-1-exec = systemctl poweroff
 menu-2-1-background = ${colors.red}
 
 menu-3-0 = "  BACK "
