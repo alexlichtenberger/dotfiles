@@ -17,7 +17,7 @@ echo ""
 
 cd ~/repos/dotfiles
 
-echo "Pick an installation: (f)ull or (h)eadless?"
+echo "Pick an installation: (f)ull (h)eadless or (w)sl?"
 read base
 if [[ $base == 'h' ]]
 then 
@@ -50,6 +50,39 @@ then
     ln $PWD/.p10k.zsh ~/.p10k.zsh
 
     echo "done."
+
+elif [[ $base == 'w' ]]
+then 
+    echo "This will replace neofetch,nvim.zshrc,.p10k.zsh configs."
+    echo "Proceed? (Y/n)"
+    read confirmation
+    if [[ $confirmation == 'n' ]]
+    then
+        echo "No changes were made."
+        echo "Exiting..." 
+        exit 0
+    fi
+
+    echo "Starting WSL linking..."
+
+    echo "link neofetch..."
+    rm -R ~/.config/neofetch 
+    ln -s $PWD/neofetch ~/.config/neofetch
+
+    echo "link nvim..."
+    rm -R ~/.config/nvim 
+    ln -s $PWD/nvim ~/.config/nvim
+
+    echo "link .zshrc..."
+    rm ~/.zshrc 
+    ln $PWD/wsl.zshrc ~/.zshrc
+
+    echo "link .p10k.zsh..."
+    rm ~/.p10k.zsh 
+    ln $PWD/.p10k.zsh ~/.p10k.zsh
+
+    echo "done."
+
 
 elif [[ $base == 'f' ]]
 then
