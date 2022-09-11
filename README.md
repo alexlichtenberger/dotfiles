@@ -93,6 +93,7 @@ These will Automatically be installed in step 5:
  - https://www.nerdfonts.com/font-downloads
  - https://www.nerdfonts.com/cheat-sheet
  - https://www.youtube.com/watch?v=S1jQfGcKjtA&ab_channel=EricMurphy
+ - MacOS changes to not hate life: https://www.youtube.com/watch?v=psPgSN1bPLY
 
 ## NVIM
 - https://www.freecodecamp.org/news/vimrc-configuration-guide-customize-your-vim-editor/
