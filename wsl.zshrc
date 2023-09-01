@@ -1,3 +1,6 @@
+############### CowSay new terminal prompt ######################
+fortune|cowsay 
+
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
@@ -77,7 +80,7 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
+# plugins=(git)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -129,3 +132,8 @@ export NVM_DIR="$HOME/.nvm"
 ################ WSL config ######################
 export LIBGL_ALWAYS_INDIRECT=1
 export DISPLAY=$(awk '/nameserver / {print $2; exit}' /etc/resolv.conf 2>/dev/null):0
+
+plugins=( git zsh-syntax-highlighting)
+
+# Disable microsoft Tracking
+export DOTNET_CLI_TELEMETRY_OPTOUT=1
