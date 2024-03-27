@@ -110,10 +110,11 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias zshconfig="nvim ~/.zshrc"
 alias zshreload="source ~/.zshrc"
-alias ll="ls -alF"
+alias ll="ls -alhF --group-directories-first"
 alias la="ls -A"
 alias l="l -cF"
 alias cd..="cd .."
+alias code-win="/mnt/c/Users/Alex/AppData/Local/Programs/Microsoft\ VS\ Code/bin/code ."
 
 function mkcd() {
   mkdir $1
@@ -137,3 +138,19 @@ plugins=( git zsh-syntax-highlighting)
 
 # Disable microsoft Tracking
 export DOTNET_CLI_TELEMETRY_OPTOUT=1
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/home/alex/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/home/alex/anaconda3/etc/profile.d/conda.sh" ]; then
+        . "/home/alex/anaconda3/etc/profile.d/conda.sh"
+    else
+        export PATH="/home/alex/anaconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
+
