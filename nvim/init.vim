@@ -80,10 +80,8 @@ nnoremap <down> <nop>
 nnoremap <left> <nop>
 nnoremap <right> <nop>
 nnoremap <silent><expr> <c-p> isdirectory(".git") ? ":GFiles\<CR>" : ":Files\<CR>"
-nnoremap <s-p> :Commands<CR>
-nnoremap <c-t> :tabnew<CR>:Files<CR>
-nnoremap <c-w> :windo bd<CR>:tabclose<CR>
-nnoremap <tab> :tabnext<CR>
+nnoremap <a-p> :Commands<CR>
+nnoremap <c-c> :Buffers<CR>
 nnoremap n nzz
 nnoremap N Nzz
 nnoremap G Gzz
@@ -93,22 +91,26 @@ nnoremap <c-k> <c-w>k
 nnoremap <c-h> <c-w>h
 nnoremap <c-l> <c-w>l
 nnoremap <s-tab> :tabprevious<CR>
-nnoremap <a-k> ddkkp
-nnoremap <a-j> ddp
+nnoremap <a-k> :m-2<CR>
+vnoremap <a-k> :m-2<CR>
+nnoremap <a-j> :m+1<CR>
+vnoremap <a-j> :m+1<CR>
 inoremap <a-k> <esc>ddkkpi
 inoremap <a-j> <esc>ddpi
 
 "Coc Config
+
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
 inoremap <silent><expr> <TAB>
       \ pumvisible() ? "\<C-n>" :
       \ <SID>check_back_space() ? "\<TAB>" :
       \ coc#refresh()
 inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 
-function! s:check_back_space() abort
-  let col = col('.') - 1
-  return !col || getline('.')[col - 1]  =~# '\s'
-endfunction
 
 inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm() : "\<CR>"
 
