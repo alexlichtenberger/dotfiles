@@ -50,10 +50,12 @@ call plug#begin()
   Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
   Plug 'junegunn/fzf.vim' 
   Plug 'scrooloose/nerdcommenter'
+  Plug 'tpope/vim-surround'
 
   " Completion / linters / formatters
   Plug 'neoclide/coc.nvim',  {'branch': 'release'}
   Plug 'plasticboy/vim-markdown'
+  Plug 'mattn/emmet-vim'
 
   " Git
   Plug 'mhinz/vim-signify'
@@ -81,9 +83,6 @@ nnoremap <left> <nop>
 nnoremap <right> <nop>
 nnoremap <silent><expr> <c-p> isdirectory(".git") ? ":GFiles\<CR>" : ":Files\<CR>"
 nnoremap <s-p> :Commands<CR>
-nnoremap <c-t> :tabnew<CR>:Files<CR>
-nnoremap <c-w> :windo bd<CR>:tabclose<CR>
-nnoremap <tab> :tabnext<CR>
 nnoremap n nzz
 nnoremap N Nzz
 nnoremap G Gzz
