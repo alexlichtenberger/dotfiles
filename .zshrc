@@ -107,7 +107,7 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias zshconfig="nvim ~/.zshrc"
 alias zshreload="source ~/.zshrc"
-alias ll="ls -alF"
+alias ll="ls -alhF --group-directories-first"
 alias la="ls -A"
 alias l="l -cF"
 alias cd..="cd .."
