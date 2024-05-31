@@ -9,6 +9,7 @@ These need to be manually installed:
   - run `ln -s ~/.local/kitty.app/bin/kitty /usr/bin/` instead of supplied command
 - [Oh-My-Zsh](https://ohmyz.sh/)
 - [p10k](https://github.com/romkatv/powerlevel10k)
+- ripgrep
 
 ## Optional additional software/packages*
 - codium

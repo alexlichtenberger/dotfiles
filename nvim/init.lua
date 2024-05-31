@@ -182,6 +182,28 @@ require("lazy").setup({
 
         -- [[ Configure Telescope ]]
         require("telescope").setup({
+          defaults = {
+            file_ignore_patters = {
+              ".git", "node_modules", "build", "dist"
+            }
+          },
+          pickers = {
+            find_files = {
+              hidden = true,
+              find_command = {
+                "rg",
+                "--files",
+                "--hidden",
+                "--glob=!**/.git/*",
+                "--glob=!**/.idea/*",
+                "--glob=!**/.vscode/*",
+                "--glob=!**/build/*",
+                "--glob=!**/dist/*",
+                "--glob=!**/yarn.lock",
+                "--glob=!**/package-lock.json",
+              },
+            }
+          },
           extensions = {
             ["ui-select"] = {
               require("telescope.themes").get_dropdown(),
@@ -527,6 +549,9 @@ require("lazy").setup({
 
         -- auto pair brackets and quotes
         require("mini.pairs").setup({})
+
+        -- tab line
+        require('mini.tabline').setup({})
       end,
     },
 
