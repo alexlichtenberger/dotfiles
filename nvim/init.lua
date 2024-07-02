@@ -69,17 +69,19 @@ vim.opt.hlsearch = true
 vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
 
 -- From the original config, maybe add back later?
--- vim.keymap.set("n", "<leader>e", vim.diagnostic.open_float, { desc = "Show diagnostic [E]rror messages" })
--- vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist, { desc = "Open diagnostic [Q]uickfix list" })
+vim.keymap.set("n", "<leader>e", vim.diagnostic.open_float, { desc = "Show diagnostic [E]rror messages" })
+vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist, { desc = "Open diagnostic [Q]uickfix list" })
 
+-- Save without :w
+vim.keymap.set("n", "<leader>fs", ":w<CR>", { desc = "[F]ile [S]ave" })
 -- Exit terminal mode in the builtin terminal with <esc><esc>
 vim.keymap.set("t", "<Esc><Esc>", "<C-\\><C-n>", { desc = "Exit terminal mode" })
 
 -- Disable arrow keys in normal mode
-vim.keymap.set("n", "<left>", '<cmd>echo "NOPE"<CR>')
-vim.keymap.set("n", "<right>", '<cmd>echo "NOPE"<CR>')
-vim.keymap.set("n", "<up>", '<cmd>echo "NOPE"<CR>')
-vim.keymap.set("n", "<down>", '<cmd>echo "NOPE"<CR>')
+vim.keymap.set("n", "<left>", '<cmd>echo "Those aren\'t the keys you\'re looking for..."<CR>')
+vim.keymap.set("n", "<right>", '<cmd>echo "Those aren\'t the keys you\'re looking for..."<CR>')
+vim.keymap.set("n", "<up>", '<cmd>echo "Those aren\'t the keys you\'re looking for..."<CR>')
+vim.keymap.set("n", "<down>", '<cmd>echo "Those aren\'t the keys you\'re looking for..."<CR>')
 
 -- Keybinds to make split navigation easier.
 --  Use CTRL+<hjkl> to switch between windows
@@ -150,6 +152,7 @@ require("lazy").setup({
         ["<leader>w"] = { name = "[W]orkspace", _ = "which_key_ignore" },
         ["<leader>t"] = { name = "[T]oggle", _ = "which_key_ignore" },
         ["<leader>h"] = { name = "Git [H]unk", _ = "which_key_ignore" },
+        ["<leader>f"] = { name = "[F]ile", _ = "which_key_ignore" }
       })
       -- visual mode
       require("which-key").register({
@@ -174,7 +177,8 @@ require("lazy").setup({
         end,
       },
       { "nvim-telescope/telescope-ui-select.nvim" },
-      { "nvim-tree/nvim-web-devicons",            enabled = vim.g.have_nerd_font },
+      { "nvim-tree/nvim-web-devicons",               enabled = vim.g.have_nerd_font },
+      { "nvim-telescope/telescope-file-browser.nvim" }
     },
     config = function()
       --  - Insert mode: <c-/>
@@ -215,12 +219,16 @@ require("lazy").setup({
           ["ui-select"] = {
             require("telescope.themes").get_dropdown(),
           },
+          file_browser = {
+            hijack_netrw = true
+          }
         },
       })
 
       -- Enable Telescope extensions if they are installed
       pcall(require("telescope").load_extension, "fzf")
       pcall(require("telescope").load_extension, "ui-select")
+      pcall(require("telescope").load_extension, "file_browser")
 
       local builtin = require("telescope.builtin")
       vim.keymap.set("n", "<leader>sh", builtin.help_tags, { desc = "[S]earch [H]elp" })
@@ -234,6 +242,11 @@ require("lazy").setup({
       vim.keymap.set("n", "<leader>s.", builtin.oldfiles, { desc = '[S]earch Recent Files ("." for repeat)' })
       vim.keymap.set("n", "<leader><leader>", builtin.buffers, { desc = "[ ] Find existing buffers" })
       vim.keymap.set("n", "<leader>sc", builtin.commands, { desc = "[S]earch [C]ommands" })
+      vim.keymap.set("n", "<leader>st", ":TodoTelescope<CR>", { desc = "[S]earch [T]odos" })
+      vim.keymap.set("n", "<leader>fb", function()
+          require("telescope").extensions.file_browser.file_browser()
+        end,
+        { desc = "[F]ile [B]rowser" })
 
       -- Slightly advanced example of overriding default behavior and theme
       vim.keymap.set("n", "<leader>/", function()
@@ -257,6 +270,7 @@ require("lazy").setup({
       end, { desc = "[S]earch [N]eovim files" })
     end,
   },
+
 
   { -- LSP Configuration & Plugins
     "neovim/nvim-lspconfig",
@@ -384,16 +398,16 @@ require("lazy").setup({
     lazy = false,
     keys = {
       {
-        "<leader>f",
+        "<leader>ff",
         function()
           require("conform").format({ async = true, lsp_fallback = true })
         end,
         mode = "",
-        desc = "[F]ormat buffer",
+        desc = "[F]ormat [F]ile",
       },
     },
     opts = {
-      notify_on_error = false,
+      notify_on_error = true,
       format_on_save = function(bufnr)
         -- Disable "format_on_save lsp_fallback" for languages that don't
         -- have a well standardized coding style. You can add additional
@@ -407,6 +421,7 @@ require("lazy").setup({
       formatters_by_ft = {
         lua = { "stylua" },
         javascript = { { "prettierd", "prettier" } },
+        html = { { "prettierd", "prettier" } },
       },
     },
   },
@@ -516,6 +531,12 @@ require("lazy").setup({
     event = "VimEnter",
     dependencies = { "nvim-lua/plenary.nvim" },
     opts = { signs = false },
+    -- TODO:
+    -- NOTE:
+    -- WARN:
+    -- HACK:
+    -- FIX:
+    -- PERF:
   },
 
   { -- Collection of various small independent plugins/modules
@@ -546,8 +567,22 @@ require("lazy").setup({
         return "%2l:%-2v"
       end
 
+      -- sessions
+      require("mini.sessions").setup()
+
+      -- alt hjkl to move selection
+      require("mini.move").setup()
+
       -- Start Screen
-      require("mini.starter").setup({})
+      local starter = require("mini.starter")
+      starter.setup({
+        items = {
+          starter.sections.telescope(),
+          starter.sections.recent_files(10, true, true),
+          starter.sections.sessions(10, true),
+          starter.sections.builtin_actions()
+        }
+      })
 
       -- gcc to toggle comments
       require("mini.comment").setup({})
