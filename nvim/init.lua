@@ -188,42 +188,43 @@ require("lazy").setup({
       -- Telescope picker. This is really useful to discover what Telescope can
       -- do as well as how to actually do it!
 
-      -- [[ Configure Telescope ]]
-      require("telescope").setup({
-        defaults = {
-          file_ignore_patters = {
-            ".git",
-            "node_modules",
-            "build",
-            "dist",
-          },
-        },
-        pickers = {
-          find_files = {
-            hidden = true,
-            find_command = {
-              "rg",
-              "--files",
-              "--hidden",
-              "--glob=!**/.git/*",
-              "--glob=!**/.idea/*",
-              "--glob=!**/.vscode/*",
-              "--glob=!**/build/*",
-              "--glob=!**/dist/*",
-              "--glob=!**/yarn.lock",
-              "--glob=!**/package-lock.json",
-            },
-          },
-        },
-        extensions = {
-          ["ui-select"] = {
-            require("telescope.themes").get_dropdown(),
-          },
+			-- [[ Configure Telescope ]]
+			require("telescope").setup({
+				defaults = {
+					file_ignore_patters = {
+						".git",
+						"node_modules",
+						"build",
+						"dist",
+					},
+				},
+				pickers = {
+					find_files = {
+						hidden = true,
+						find_command = {
+							"rg",
+							"--files",
+							"--hidden",
+							"--glob=!**/.git/*",
+							"--glob=!**/.idea/*",
+							"--glob=!**/.vscode/*",
+							"--glob=!**/node_modules/*",
+							"--glob=!**/build/*",
+							"--glob=!**/dist/*",
+							"--glob=!**/yarn.lock",
+							"--glob=!**/package-lock.json",
+						},
+					},
+				},
+				extensions = {
+					["ui-select"] = {
+						require("telescope.themes").get_dropdown(),
+					},
           file_browser = {
             hijack_netrw = true
           }
-        },
-      })
+				},
+			})
 
       -- Enable Telescope extensions if they are installed
       pcall(require("telescope").load_extension, "fzf")
