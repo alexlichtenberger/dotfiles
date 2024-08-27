@@ -6,25 +6,26 @@ return {
 		{ "williamboman/mason.nvim", config = true },
 		"williamboman/mason-lspconfig.nvim",
 		"WhoIsSethDaniel/mason-tool-installer.nvim",
-		{ "j-hui/fidget.nvim", opts = {} },
-		{ "folke/neodev.nvim", opts = {} },
+		{ "j-hui/fidget.nvim",       opts = {} },
+		{ "folke/neodev.nvim",       opts = {} },
 	},
 	config = function()
 		vim.api.nvim_create_autocmd("LspAttach", {
 			group = vim.api.nvim_create_augroup("kickstart-lsp-attach", { clear = true }),
 			callback = function(event)
 				local map = function(keys, func, desc)
-					vim.keymap.set("n", keys, func, { buffer = event.buf, desc = "LSP: " .. desc })
+					vim.keymap.set("n", keys, func, { buffer = event.buf, desc = desc })
 				end
-
-				map("gd", require("telescope.builtin").lsp_definitions, "[G]oto [D]efinition")
-				map("gr", require("telescope.builtin").lsp_references, "[G]oto [R]eferences")
-				map("gI", require("telescope.builtin").lsp_implementations, "[G]oto [I]mplementation")
-				map("<leader>D", require("telescope.builtin").lsp_type_definitions, "Type [D]efinition")
-				map("<leader>ds", require("telescope.builtin").lsp_document_symbols, "[D]ocument [S]ymbols")
-				map("<leader>rn", vim.lsp.buf.rename, "[R]e[n]ame")
+				require("which-key").add({ { '<leader>c', group = '[C]ode', mode = { 'n', 'x' } },
+					{ "<leader>c_", hidden = true } })
+				map("<leader>cd", require("telescope.builtin").lsp_definitions, "[C]ode: Goto [D]efinition")
+				map("<leader>cr", require("telescope.builtin").lsp_references, "[C]ode: Goto [R]eferences")
+				map("<leader>ci", require("telescope.builtin").lsp_implementations, "[C]ode: Goto [I]mplementation")
+				map("<leader>ct", require("telescope.builtin").lsp_type_definitions, "[C]ode: Goto [T]ype Definition")
+				map("<leader>cs", require("telescope.builtin").lsp_document_symbols, "[C]ode: Document [S]ymbols")
+				map("<leader>cr", vim.lsp.buf.rename, "[C]ode: [R]ename")
 				map("<leader>ca", vim.lsp.buf.code_action, "[C]ode [A]ction")
-				map("gD", vim.lsp.buf.declaration, "[G]oto [D]eclaration")
+				map("<leader>gD", vim.lsp.buf.declaration, "[C]ode: Goto [D]eclaration")
 
 				-- Opens a popup that displays documentation about the word under your cursor
 				map("K", vim.lsp.buf.hover, "Hover Documentation")
@@ -73,7 +74,6 @@ return {
 		local servers = {
 			-- clangd = {},
 			-- gopls = {},
-			-- pyright = {},
 			-- rust_analyzer = {},
 			lua_ls = {
 				settings = {
@@ -86,6 +86,8 @@ return {
 			},
 			tsserver = {},
 			cssls = {},
+			emmet_ls = {},
+			pyright = {},
 		}
 
 		-- Ensure the servers and tools above are installed
@@ -98,7 +100,7 @@ return {
 		-- for you, so that they are available from within Neovim.
 		local ensure_installed = vim.tbl_keys(servers or {})
 		vim.list_extend(ensure_installed, {
-			"stylua", -- Used to format Lua code
+			"stylua",
 		})
 		require("mason-tool-installer").setup({ ensure_installed = ensure_installed })
 

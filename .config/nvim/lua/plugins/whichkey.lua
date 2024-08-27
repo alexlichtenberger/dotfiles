@@ -15,5 +15,6 @@ return {
 			end,
 			desc = "Buffer Local Keymaps (which-key)",
 		},
+
 	},
 }

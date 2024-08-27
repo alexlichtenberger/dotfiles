@@ -152,3 +152,7 @@ unset __conda_setup
 # <<< conda initialize <<<
 
 export PATH="/snap/bin/:$PATH"
+
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+eval $(thefuck --alias)
+export THEFUCK_EXCLUDED_SEARCH_PATH_PREFIXES=/mnt
