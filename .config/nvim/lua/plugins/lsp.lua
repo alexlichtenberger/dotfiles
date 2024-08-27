@@ -23,9 +23,9 @@ return {
 				map("<leader>ci", require("telescope.builtin").lsp_implementations, "[C]ode: Goto [I]mplementation")
 				map("<leader>ct", require("telescope.builtin").lsp_type_definitions, "[C]ode: Goto [T]ype Definition")
 				map("<leader>cs", require("telescope.builtin").lsp_document_symbols, "[C]ode: Document [S]ymbols")
-				map("<leader>cr", vim.lsp.buf.rename, "[C]ode: [R]ename")
+				map("<leader>cn", vim.lsp.buf.rename, "[C]ode: Re[n]ame")
 				map("<leader>ca", vim.lsp.buf.code_action, "[C]ode [A]ction")
-				map("<leader>gD", vim.lsp.buf.declaration, "[C]ode: Goto [D]eclaration")
+				map("<leader>cD", vim.lsp.buf.declaration, "[C]ode: Goto [D]eclaration")
 
 				-- Opens a popup that displays documentation about the word under your cursor
 				map("K", vim.lsp.buf.hover, "Hover Documentation")
