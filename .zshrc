@@ -128,3 +128,13 @@ export NVM_DIR="$HOME/.nvm"
 
 # Prevent microsoft from spying too much:
 export DOTNET_CLI_TELEMETRY_OPTOUT=1
+
+# bun completions
+[ -s "/home/alexlichtenberger/.bun/_bun" ] && source "/home/alexlichtenberger/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
+
+# thefuck
+eval $(thefuck --alias)
