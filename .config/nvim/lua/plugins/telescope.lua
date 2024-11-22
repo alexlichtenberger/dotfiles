@@ -3,9 +3,9 @@ return {
 	tag = "0.1.8",
 	dependencies = {
 		"nvim-lua/plenary.nvim",
-		{ "nvim-telescope/telescope-fzf-native.nvim",  build = "make" },
+		{ "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
 		{ "nvim-telescope/telescope-ui-select.nvim" },
-		{ "nvim-tree/nvim-web-devicons",               enabled = vim.g.have_nerd_font },
+		{ "nvim-tree/nvim-web-devicons", enabled = vim.g.have_nerd_font },
 		{ "nvim-telescope/telescope-ui-select.nvim" },
 		{ "nvim-telescope/telescope-file-browser.nvim" },
 	},
@@ -53,11 +53,11 @@ return {
 		pcall(require("telescope").load_extension, "ui-select")
 		pcall(require("telescope").load_extension, "file_browser")
 
-		-- Keybinds			
+		-- Keybinds
 		require("which-key").add({
-			{ "<leader>s",  group = "[S]earch" },
+			{ "<leader>s", group = "[S]earch" },
 			{ "<leader>s_", hidden = true },
-			{ "<leader>f",  group = "[F]ile" },
+			{ "<leader>f", group = "[F]ile" },
 			{ "<leader>f_", hidden = true },
 		})
 		local builtin = require("telescope.builtin")
@@ -68,10 +68,19 @@ return {
 		vim.keymap.set("n", "<leader>sb", builtin.buffers, { desc = "[S]earch [B]uffers" })
 		vim.keymap.set("n", "<leader><leader>", builtin.buffers, { desc = "Search Open Buffers" })
 		vim.keymap.set("n", "<leader>s/", builtin.live_grep, { desc = "[S]earch [/] by grep" })
-		vim.keymap.set("n", "<leader>/",
-			function() builtin.current_buffer_fuzzy_find(require('telescope.themes').get_dropdown { windblend = 10, previewer = false }) end,
-			{ desc = "[/] fuzzy search in file" })
-		vim.keymap.set("n", "<leader>fb", function() require("telescope").extensions.file_browser() end,
-			{ desc = "Open [F]ile [Browser]" })
-	end
+		vim.keymap.set(
+			"n",
+			"<leader>ss",
+			require("telescope.builtin").lsp_document_symbols,
+			{ desc = "[S]earch Document [S]ymbols" }
+		)
+		vim.keymap.set("n", "<leader>/", function()
+			builtin.current_buffer_fuzzy_find(
+				require("telescope.themes").get_dropdown({ windblend = 10, previewer = false })
+			)
+		end, { desc = "[/] fuzzy search in file" })
+		vim.keymap.set("n", "<leader>fb", function()
+			require("telescope").extensions.file_browser()
+		end, { desc = "Open [F]ile [Browser]" })
+	end,
 }
