@@ -6,8 +6,8 @@ return {
 		{ "williamboman/mason.nvim", config = true },
 		"williamboman/mason-lspconfig.nvim",
 		"WhoIsSethDaniel/mason-tool-installer.nvim",
-		{ "j-hui/fidget.nvim",       opts = {} },
-		{ "folke/neodev.nvim",       opts = {} },
+		{ "j-hui/fidget.nvim", opts = {} },
+		{ "folke/neodev.nvim", opts = {} },
 	},
 	config = function()
 		vim.api.nvim_create_autocmd("LspAttach", {
@@ -16,8 +16,10 @@ return {
 				local map = function(keys, func, desc)
 					vim.keymap.set("n", keys, func, { buffer = event.buf, desc = desc })
 				end
-				require("which-key").add({ { '<leader>c', group = '[C]ode', mode = { 'n', 'x' } },
-					{ "<leader>c_", hidden = true } })
+				require("which-key").add({
+					{ "<leader>c", group = "[C]ode", mode = { "n", "x" } },
+					{ "<leader>c_", hidden = true },
+				})
 				map("<leader>cd", require("telescope.builtin").lsp_definitions, "[C]ode: Goto [D]efinition")
 				map("<leader>cr", require("telescope.builtin").lsp_references, "[C]ode: Goto [R]eferences")
 				map("<leader>ci", require("telescope.builtin").lsp_implementations, "[C]ode: Goto [I]mplementation")
@@ -84,7 +86,7 @@ return {
 					},
 				},
 			},
-			tsserver = {},
+			ts_ls = {},
 			cssls = {},
 			emmet_ls = {},
 			pyright = {},
