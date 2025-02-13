@@ -5,9 +5,9 @@ Installation
 -----------
 
 1. Clone this repository and `cd` into it.
-2. Install the software in [Software Links](#Software Links)
+2. Install the software in [Software Links](#software-links)
 3. Install remaining packages using the following brew commands:
-    1. `brew install stow neovim lazygit uv oh-my-posh ripgrep fd bat`
+    1. `brew install stow neovim lazygit uv oh-my-posh ripgrep fd bat zellij`
     2. `brew install --cask font-fira-code-nerd-font`
 4. Symlink config files with `make all`
 
