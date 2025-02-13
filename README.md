@@ -10,6 +10,7 @@ Installation
     1. `brew install stow neovim lazygit uv oh-my-posh ripgrep fd bat zellij`
     2. `brew install --cask font-fira-code-nerd-font`
 4. Symlink config files with `make all`
+5. Update your terminal to use Nord and FiraCodeNF
 
 Symlinks can all be removed with `make delete`
 
