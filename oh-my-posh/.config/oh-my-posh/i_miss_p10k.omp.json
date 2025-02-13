@@ -1,0 +1,62 @@
+{
+  "$schema": "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json",
+  "final_space": true,
+  "version": 3,
+  "blocks": [
+    {
+      "type": "prompt",
+      "alignment": "left",
+      "segments": [
+        {
+          "type": "path",
+          "style": "plain",
+          "foreground": "cyan",
+          "properties": {
+            "style": "unique"
+          }
+        },
+        {
+          "type": "project",
+          "template": "{{ if .Name }}{{ .Name }} {{end}}"
+        },
+        {
+          "type": "git",
+          "style": "plain",
+          "template": "on <green>{{ .HEAD }}</> {{ if or (gt .Ahead 0) (gt .Behind 0) }}<red>{{ .BranchStatus }}</> {{ end }}{{ if gt .StashCount 0 }}<green>*{{ .StashCount }}</> {{ end }}{{ if .Staging.Changed }}[{{ .Staging.String }}] {{ end }}{{ if gt .Working.Modified 0 }}<yellow>!{{ .Working.Modified }}</> {{ end }}{{ if gt .Working.Untracked 0 }}<cyan>?{{ .Working.Untracked }}</> {{ end }}",
+          "properties": {
+            "fetch_status": true,
+            "fetch_stash_count": true,
+            "branch_icon": ""
+          }
+        },
+        {
+          "type": "text",
+          "style": "plain",
+          "foreground": "green",
+          "template": ">"
+        }
+      ]
+    },
+    {
+      "type": "rprompt",
+      "alignment": "right",
+      "overflow": "break",
+      "segments": [
+        {
+          "type": "status",
+          "style": "plain",
+          "foreground": "green",
+          "foreground_templates": ["{{ if gt .Code 0 }}red{{ end }}"],
+          "template": "{{ if eq .Code 0 }}OK{{ else }}{{ reason .Code }}{{ end }}",
+          "properties": {
+            "always_enabled": true
+          }
+        },
+        {
+          "type": "time",
+          "style": "plain"
+        }
+      ]
+    }
+  ]
+}
