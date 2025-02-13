@@ -1,18 +1,37 @@
-# dotfiles
+dotfiles
+==============================
 
-## Installation
+Installation
+-----------
 
-## Other Required Software
+1. Clone this repository and `cd` into it.
+2. Install the software in [Software Links](#Software Links)
+3. Install remaining packages using the following brew commands:
+    1. `brew install stow neovim lazygit uv oh-my-posh ripgrep fd bat`
+    2. `brew install --cask font-fira-code-nerd-font`
+4. Symlink config files with `make all`
+
+Symlinks can all be removed with `make delete`
+
+Software Links
+--------------
+
 These need to be manually installed:
-- [FiraCodeNF](https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/FiraCode) (check resources for FiraCode Nerd Font link)
-- [Oh-My-Zsh](https://ohmyz.sh/)
-- [p10k](https://github.com/romkatv/powerlevel10k)
-- ripgrep
-- fd (fd-find)
-
-## Optional additional software/packages*
+- [linuxbrew](https://brew.sh/)
 - [Node/NVM](https://github.com/nvm-sh/nvm)
 
-## Additional Resources
+Notes for Fedora
+----------------
+
+Gnome Extensions (install via extension manager):
+- Alphabetical App Grid
+- Battery Time
+- Night Theme Switcher
+- Tiling Shell
+- UPower Battery
+
+Additional Resources
+-------------------
+
  - https://www.nerdfonts.com/font-downloads
  - https://www.nerdfonts.com/cheat-sheet
