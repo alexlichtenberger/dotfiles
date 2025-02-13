@@ -72,8 +72,9 @@ return {
 			{ "<leader>f_", hidden = true },
 			{ "<leader>s", group = "[S]earch" },
 			{ "<leader>s_", hidden = true },
-			{ "<leader>v", group = "[V]iew" },
-			{ "<leader>v_", hidden = true },
+			{ "<leader>o", group = "[O]pen" },
+			{ "<leader>o_", hidden = true },
+
 			-- save file without colon TODO: This doesn't belong here
 			vim.keymap.set("n", "<leader>fs", "<cmd>w<cr>", { desc = "[F]ile [S]ave" }),
 		})

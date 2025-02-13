@@ -9,10 +9,9 @@ return {
 	config = function()
 		vim.keymap.set(
 			"n",
-			"<leader>vf",
+			"<leader>ot",
 			"<cmd>Neotree filesystem reveal left toggle<cr>",
-			{ desc = "[V]iew [F]iletree" }
+			{ desc = "[O]pen File[T]ree" }
 		)
 	end,
 }
-
