@@ -15,6 +15,7 @@ keybinds clear-defaults=true {
     }
     shared {
         bind "Alt f" { ToggleFloatingPanes; }
+        bind "Alt n" { NewPane; }
     }
     locked {
         bind "Ctrl g" { SwitchToMode "normal"; }
@@ -149,7 +150,6 @@ keybinds clear-defaults=true {
         bind "Alt ]" { NextSwapLayout; }
         bind "Ctrl g" { SwitchToMode "locked"; }
         bind "Alt i" { MoveTab "left"; }
-        bind "Alt n" { NewPane; }
         bind "Alt o" { MoveTab "right"; }
         bind "Ctrl q" { Quit; }
     }
