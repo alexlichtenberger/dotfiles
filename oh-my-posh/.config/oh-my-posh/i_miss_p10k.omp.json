@@ -17,6 +17,7 @@
         },
         {
           "type": "project",
+          "foreground": "yellow",
           "template": "{{ if .Name }}{{ .Name }} {{end}}"
         },
         {
@@ -47,10 +48,21 @@
           "style": "plain",
           "foreground": "green",
           "foreground_templates": ["{{ if gt .Code 0 }}red{{ end }}"],
-          "template": "{{ if eq .Code 0 }}OK{{ else }}{{ reason .Code }}{{ end }}",
+          "template": "{{ if eq .Code 0 }}OK{{ else }}{{ reason .Code }}{{ end }} <white>|</>",
           "properties": {
             "always_enabled": true
           }
+        },
+        {
+          "type": "python",
+          "style": "plain",
+          "foreground": "yellow",
+          "template": "  {{ .Full }}"
+        },
+        {
+          "type": "node",
+          "foreground": "green",
+          "template": "  {{ .Major }}"
         },
         {
           "type": "time",
