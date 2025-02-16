@@ -74,6 +74,8 @@ return {
 			{ "<leader>s_", hidden = true },
 			{ "<leader>o", group = "[O]pen" },
 			{ "<leader>o_", hidden = true },
+			{ "<leader>m", group = "[M]ulticursor" },
+			{ "<leader>m_", hidden = true },
 
 			-- save file without colon TODO: This doesn't belong here
 			vim.keymap.set("n", "<leader>fs", "<cmd>w<cr>", { desc = "[F]ile [S]ave" }),
@@ -81,7 +83,7 @@ return {
 
 		local builtin = require("telescope.builtin")
 		vim.keymap.set("n", "<leader>sf", builtin.find_files, { desc = "[S]earch [F]iles" })
-		vim.keymap.set("n", "<leader>sw", builtin.grep_string, { desc = "[S]earch Current [W]ord" })
+		-- vim.keymap.set("n", "<leader>sw", builtin.grep_string, { desc = "[S]earch Current [W]ord" })
 		vim.keymap.set("n", "<leader>sd", builtin.diagnostics, { desc = "[S]earch [D]iagnostics" })
 		vim.keymap.set("n", "<leader>st", ":TodoTelescope<cr>", { desc = "[S]earch [T]odos" })
 		vim.keymap.set("n", "<leader>sb", builtin.buffers, { desc = "[S]earch [B]uffers" })
@@ -89,10 +91,11 @@ return {
 		vim.keymap.set("n", "<leader>s/", builtin.live_grep, { desc = "[S]earch [/] by grep" })
 		vim.keymap.set(
 			"n",
-			"<leader>ss",
-			require("telescope.builtin").lsp_document_symbols,
-			{ desc = "[S]earch Document [S]ymbols" }
+			"<leader>sw",
+			require("telescope.builtin").lsp_dynamic_workspace_symbols,
+			{ desc = "[S]earch [W]orkspace Symbols" }
 		)
+		vim.keymap.set("n", "<leader>ss", builtin.lsp_document_symbols, { desc = "[S]earch Document [S]ymbols" })
 		vim.keymap.set("n", "<leader>/", function()
 			builtin.current_buffer_fuzzy_find(
 				require("telescope.themes").get_dropdown({ windblend = 10, previewer = false })

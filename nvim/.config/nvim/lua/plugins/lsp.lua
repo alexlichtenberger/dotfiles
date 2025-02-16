@@ -20,7 +20,7 @@ return {
 					{ "<leader>c", group = "[C]ode", mode = { "n", "x" } },
 					{ "<leader>c_", hidden = true },
 				})
-				
+
 				map("<leader>cd", require("telescope.builtin").lsp_definitions, "[C]ode: Goto [D]efinition")
 				map("<leader>cr", require("telescope.builtin").lsp_references, "[C]ode: Goto [R]eferences")
 				map("<leader>ci", require("telescope.builtin").lsp_implementations, "[C]ode: Goto [I]mplementation")
@@ -60,13 +60,13 @@ return {
 					})
 				end
 
-				-- The following autocommand is used to enable inlay hints in your
-				-- code, if the language server you are using supports them
-				if client and client.server_capabilities.inlayHintProvider and vim.lsp.inlay_hint then
-					map("<leader>th", function()
-						vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled({}))
-					end, "[T]oggle Inlay [H]ints")
-				end
+				-- -- The following autocommand is used to enable inlay hints in your
+				-- -- code, if the language server you are using supports them
+				-- if client and client.server_capabilities.inlayHintProvider and vim.lsp.inlay_hint then
+				-- 	map("<leader>th", function()
+				-- 		vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled({}))
+				-- 	end, "[T]oggle Inlay [H]ints")
+				-- end
 			end,
 		})
 

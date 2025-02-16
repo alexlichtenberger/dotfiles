@@ -29,8 +29,10 @@ vim.opt.smartcase = true
 vim.opt.signcolumn = "yes"
 
 -- decrease delays for snappier experience
-vim.opt.timeoutlen = 300
 vim.opt.updatetime = 250
+
+-- increase timeout len for surround
+vim.opt.timeoutlen = 2000
 
 -- splits open right and down
 vim.opt.splitright = true

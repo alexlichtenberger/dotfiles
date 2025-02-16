@@ -14,17 +14,16 @@ return {
 	},
 	opts = {
 		notify_on_error = true,
-		format_on_save = function(bufnr)
-			-- Disable "format_on_save lsp_fallback" for languages that don't
-			-- have a well standardized coding style. You can add additional
-			-- languages here or re-enable it for the disabled ones.
-			local disable_filetypes = { c = true, cpp = true, css = true }
-
-			return {
-				timeout_ms = 500,
-				lsp_fallback = not disable_filetypes[vim.bo[bufnr].filetype],
-			}
-		end,
+		format_on_save = {
+			timeout_ms = 3000,
+			lsp_fallback = true,
+		},
+		default_format_opts = {
+			timeout_ms = 3000,
+			async = false,
+			quite = false,
+			lsp_format = "fallback",
+		},
 		formatters_by_ft = {
 			lua = { "stylua" },
 			-- Conform will run multiple formatters sequentially
@@ -35,6 +34,7 @@ return {
 			javascript = { "prettierd", "prettier", stop_after_first = true },
 			html = { "prettierd", "prettier", stop_after_first = true },
 			json = { "prettierd", "prettier", stop_after_first = true },
+			markdown = { "prettierd", "prettier", stop_after_first = true },
 		},
 	},
 }
