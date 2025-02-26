@@ -5,6 +5,7 @@ return {
 		-- or leave it empty to use the default settings
 		-- refer to the configuration section below
 	},
+	event = "VeryLazy",
 	keys = {
 		vim.keymap.set("n", "<leader>vz", "<cmd>ZenMode<cr>", { desc = "Toggle Zen Mode" }),
 	},
