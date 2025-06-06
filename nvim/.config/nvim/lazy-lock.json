@@ -1,5 +1,5 @@
 {
-  "LuaSnip": { "branch": "master", "commit": "c1851d5c519611dfc451b6582961b2602e0af89b" },
+  "LuaSnip": { "branch": "master", "commit": "566910dae916c3310800dd090d76f235e8ba5f92" },
   "barbar.nvim": { "branch": "master", "commit": "53b5a2f34b68875898f0531032fbf090e3952ad7" },
   "cmp-calc": { "branch": "main", "commit": "5947b412da67306c5b68698a02a846760059be2e" },
   "cmp-dictionary": { "branch": "main", "commit": "fecc3ef2435c2be35818f8fcac4a6c5655f3a8f0" },
