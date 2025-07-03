@@ -50,8 +50,15 @@ eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 # UV
 . "$HOME/.local/bin/env"
 
+# Oh My Posh
+eval "$(oh-my-posh init zsh --config ~/.config/oh-my-posh/i_miss_p10k.omp.json)"
+
+# RUNTIME DIR FIX FOR WSL
+if [[ $(grep -i Microsoft /proc/version) ]]; then
+  export XDG_RUNTIME_DIR=/mnt/wslg/runtime-dir
+fi
+
 # zellij
 eval "$(zellij setup --generate-auto-start zsh)"
 
-# Oh My Posh
-eval "$(oh-my-posh init zsh --config ~/.config/oh-my-posh/i_miss_p10k.omp.json)"
+. $HOMEBREW_PREFIX/etc/profile.d/z.sh
