@@ -1,6 +1,2 @@
-require("keybinds")
-require("settings")
-require("autocmds")
+-- bootstrap lazy.nvim, LazyVim and your plugins
 require("config.lazy")
--- require("lazy").setup("plugins")
-
