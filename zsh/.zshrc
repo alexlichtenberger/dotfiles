@@ -58,6 +58,9 @@ if [[ $(grep -i Microsoft /proc/version) ]]; then
   export XDG_RUNTIME_DIR=/mnt/wslg/runtime-dir
 fi
 
+# GPG
+export GPG_TTY=$(tty)
+
 # zellij
 eval "$(zellij setup --generate-auto-start zsh)"
 
