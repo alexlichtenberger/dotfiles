@@ -29,7 +29,7 @@ Gnome Extensions (install via extension manager):
 - Battery Time (for laptops)
 - Night Theme Switcher
 - Tiling Shell
-- UPower Battery
+- UPower Battery (for laptops)
 
 ## Additional Resources
 
