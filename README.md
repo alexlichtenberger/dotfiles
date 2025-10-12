@@ -26,10 +26,10 @@ These need to be manually installed:
 Gnome Extensions (install via extension manager):
 
 - Alphabetical App Grid
-- Battery Time (for laptops)
+- Battery Time
 - Night Theme Switcher
 - Tiling Shell
-- UPower Battery (for laptops)
+- UPower Battery
 
 ## Additional Resources
 
