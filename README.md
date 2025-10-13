@@ -23,7 +23,7 @@ These need to be manually installed:
 
 ## Notes for Fedora
 
-Gnome Extensions (install via extension manager):
+Gnome Extensions:
 
 - Alphabetical App Grid
 - Battery Time
