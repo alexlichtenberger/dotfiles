@@ -65,3 +65,5 @@ export GPG_TTY=$(tty)
 eval "$(zellij setup --generate-auto-start zsh)"
 
 . $HOMEBREW_PREFIX/etc/profile.d/z.sh
+
+eval "$(zoxide init zsh)"
