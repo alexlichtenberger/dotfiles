@@ -5,12 +5,12 @@
 1. Clone this repository and `cd` into it.
 2. Install the software in [Software Links](#software-links)
 3. Install remaining packages using the following brew commands:
-   1. `brew install stow neovim lazygit uv oh-my-posh ripgrep fd bat zellij thefuck zoxide tlrc tree-sitter-cli zsh fzf`
+   1. `brew install stow neovim lazygit uv oh-my-posh ripgrep fd bat zellij thefuck zoxide tree-sitter-cli zsh fzf pnpm mise`
    2. `brew install --cask font-fira-code-nerd-font`
 4. Change default shell from bash with `echo "$(which zsh)" | sudo tee -a /etc/shells` and then `chsh -s "$(which zsh)"`
    1. It might help as this point to `export $SHELL="$(which zsh)"` as well.
 5. Symlink config files with `make all`
-6. Update your terminal to use Nord and FiraCodeNF
+6. Update your terminal of choice to use Nord and FiraCodeNF
 
 (_Symlinks can all be removed with `make delete`_)
 
@@ -18,8 +18,7 @@
 
 These need to be manually installed:
 
-- [linuxbrew](https://brew.sh/)
-- [Node/NVM](https://github.com/nvm-sh/nvm)
+- [home/linuxbrew](https://brew.sh/)
 
 ## Notes for Fedora
 

@@ -18,17 +18,13 @@ function mkcd() {
   cd $1
 }
 
+# use bat to view diffs
 batdiff() {
     git diff --name-only --relative --diff-filter=d | xargs bat --diff
 }
 
-# overwrite the default to use ll instead of ls
+# overwrite the default to use ll instead of ls for <a+l>
 bindkey -s "^[l" "ll^J"
-
-# NVM
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 # Prevent microsoft from spying too much:
 export DOTNET_CLI_TELEMETRY_OPTOUT=1
@@ -47,9 +43,6 @@ export THEFUCK_EXCLUDED_SEARCH_PATH_PREFIXES=/mnt
 # linuxbrew
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 
-# UV
-. "$HOME/.local/bin/env"
-
 # Oh My Posh
 eval "$(oh-my-posh init zsh --config ~/.config/oh-my-posh/i_miss_p10k.omp.json)"
 
@@ -64,6 +57,16 @@ export GPG_TTY=$(tty)
 # zellij
 eval "$(zellij setup --generate-auto-start zsh)"
 
-. $HOMEBREW_PREFIX/etc/profile.d/z.sh
-
+# Zoxide
 eval "$(zoxide init zsh)"
+
+# pnpm
+export PNPM_HOME="/home/alexlichtenberger/.local/share/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end
+
+# Mise
+eval "$(mise activate zsh)"
