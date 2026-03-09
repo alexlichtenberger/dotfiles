@@ -38,7 +38,6 @@ export PATH="$BUN_INSTALL/bin:$PATH"
 
 # thefuck
 eval $(thefuck --alias)
-export THEFUCK_EXCLUDED_SEARCH_PATH_PREFIXES=/mnt
 
 # linuxbrew
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
