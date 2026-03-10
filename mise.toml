@@ -1,0 +1,7 @@
+[tasks.link]
+description = "Restow all packages"
+run = "stow --verbose --target $HOME --restow */"
+
+[tasks.unlink]
+description = "Delete all stowed packages"
+run = "stow --verbose --target $HOME --delete */"

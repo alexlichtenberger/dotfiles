@@ -9,10 +9,10 @@
    2. `brew install --cask font-fira-code-nerd-font`
 4. Change default shell from bash with `echo "$(which zsh)" | sudo tee -a /etc/shells` and then `chsh -s "$(which zsh)"`
    1. It might help as this point to `export $SHELL="$(which zsh)"` as well.
-5. Symlink config files with `make all`
+5. Symlink config files with `mise run link`
 6. Update your terminal of choice to use Nord and FiraCodeNF
 
-(_Symlinks can all be removed with `make delete`_)
+(_Symlinks can all be removed with `mise run unlink`_)
 
 ## Software Links
 

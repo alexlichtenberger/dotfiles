@@ -1,3 +1,9 @@
 [tools]
 bun = "latest"
 node = "latest"
+pnpm = "latest"
+
+[settings]
+
+[settings.npm]
+package_manager = "pnpm"
