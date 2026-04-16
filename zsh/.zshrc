@@ -40,14 +40,22 @@ export PATH="$BUN_INSTALL/bin:$PATH"
 eval $(thefuck --alias)
 
 # linuxbrew
-eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+if [[ -f /opt/homebrew/bin/brew ]]; then
+  eval "$(/opt/homebrew/bin/brew shellenv)"
+elif [[ -f /usr/local/bin/brew ]]; then
+  eval "$(/usr/local/bin/brew shellenv)"
+elif [[ -f /home/linuxbrew/.linuxbrew/bin/brew ]]; then
+  eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+fi
 
 # Oh My Posh
 eval "$(oh-my-posh init zsh --config ~/.config/oh-my-posh/i_miss_p10k.omp.json)"
 
 # RUNTIME DIR FIX FOR WSL
-if [[ $(grep -i Microsoft /proc/version) ]]; then
-  export XDG_RUNTIME_DIR=/mnt/wslg/runtime-dir
+if [[ "$OSTYPE" == linux* ]]; then
+  if [[ $(grep -i Microsoft /proc/version) ]]; then
+    export XDG_RUNTIME_DIR=/mnt/wslg/runtime-dir
+  fi
 fi
 
 # GPG
@@ -69,3 +77,9 @@ esac
 
 # Mise
 eval "$(mise activate zsh)"
+
+# if macos, use coreuitls instead of the crap it comes with.
+if [[ "$OSTYPE" == darwin* ]]; then
+  PATH="$(brew --prefix coreutils)/libexec/gnubin:$PATH"
+fi
+
