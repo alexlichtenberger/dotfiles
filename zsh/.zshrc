@@ -83,3 +83,6 @@ if [[ "$OSTYPE" == darwin* ]]; then
   PATH="$(brew --prefix coreutils)/libexec/gnubin:$PATH"
 fi
 
+# set editor to neovim
+export EDITOR=nvim
+export VISUAL=nvim
